@@ -5,11 +5,12 @@ import (
 	"log"
 
 	"github.com/kauri646/be-idealibs/config"
+	"github.com/kauri646/be-idealibs/internal/models/images"
 	"github.com/kauri646/be-idealibs/internal/models/users"
 )
 
 func RunMigration() {
-	err := config.DB.AutoMigrate(&users.User{})
+	err := config.DB.AutoMigrate(&users.User{}, &images.Image{})
 	if err != nil {
 		log.Println(err)
 	}
